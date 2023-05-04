@@ -1,0 +1,53 @@
+﻿@page "/GridPage"
+@layout MainLayout
+@using ReusableGridComponent.Models
+@using ReusableGridComponent.Shared.DataGrid
+
+<Grid Items="_categories" TItem="Category">
+    <Columns>
+        <Column Name="Id" Label="" />
+        <Column Name="First" Label="نام" />
+        <Column Name="Last" Label="نام خانوادگی" />
+        <Column Name="Handle" Label="هندل" />
+        <Column>
+            <button>عملیات</button>
+        </Column>
+    </Columns>
+</Grid>
+
+@code {
+    private IList<Category> _categories;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(3000);
+
+        _categories = new List<Category>()
+        {
+            new Category()
+            {
+                Id = 1,
+                First = "Armin",
+                Last = "Kianian",
+                Handle = "aef er"
+            },
+            new Category()
+            {
+                Id = 2,
+                First = "asdfas",
+                Last = "asergh wrth",
+                Handle = "fuyjhkyu j"
+            },
+            new Category()
+            {
+                Id = 3,
+                First = "yyy",
+                Last = "pppp",
+                Handle = "jjj"
+            },
+        };
+
+        //return base.OnInitializedAsync();
+    }
+
+}
